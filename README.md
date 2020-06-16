@@ -1,7 +1,7 @@
 <p align="center"><img width=500 alt="Cloudtopolis" src="https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.png"></p>
 
 
-**Cloudtopolis** es una herramienta que facilita la instalación y el aprovisionamiento de Hashtopolis en la plataforma Google Cloud Shell, de forma rápida y totalmente desatendida.
+**Cloudtopolis** es una herramienta que facilita la instalación y el aprovisionamiento de Hashtopolis en la plataforma Google Cloud Shell, de forma rápida y totalmente desatendida (y además, gratis!).
 
 
 # Requisitos
@@ -71,7 +71,7 @@ Para más información, puede contactar a través de info@darkbyte.net
 -------------------------------------------------------------------------------------------------------------
 # English description
 
-**Cloudtopolis** is a tool that facilitates the installation and provisioning of Hashtopolis on the Google Cloud Shell platform, quickly and completely unattended.
+**Cloudtopolis** is a tool that facilitates the installation and provisioning of Hashtopolis on the Google Cloud Shell platform, quickly and completely unattended (and also, free!).
 
 
 # Requirements
