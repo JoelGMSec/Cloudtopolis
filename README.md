@@ -32,7 +32,7 @@ Acceder a Google Colaboratory a través del siguiente enlace:
 
 https://colab.research.google.com/github/JoelGMSec/Cloudtopolis/blob/master/Cloudtopolis.ipynb
 
-Es necesario cumplimentar los campos en la sección "Requeriments" con los datos obtenidos en Google Cloud Shell y Hashtopolis.
+Es necesario rellenar los campos en la sección "Requeriments" con los datos obtenidos en Google Cloud Shell y Hashtopolis.
 
 Por último, ejecutar la solución hasta que el agente aparezca registrado en Hashtopolis.
 
@@ -110,7 +110,7 @@ Access Google Colaboratory through the following link:
 
 https://colab.research.google.com/github/JoelGMSec/Cloudtopolis/blob/master/Cloudtopolis.ipynb
 
-It is necessary to fill in the fields in the "Requeriments" section with the data obtained in Google Cloud Shell and Hashtopolis.
+It is necessary to fill the fields in the "Requeriments" section with the data obtained in Google Cloud Shell and Hashtopolis.
 
 Finally, run the solution until the agent is registered with Hashtopolis.
 
