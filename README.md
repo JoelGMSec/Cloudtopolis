@@ -1,4 +1,4 @@
-<p align="center"><img width=500 alt="Cloudtopolis" src="https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.png?token=AIF6UUG2DTJQAQIB24UJN3265CEH6"></p>
+<p align="center"><img width=500 alt="Cloudtopolis" src="https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.png"></p>
 
 
 **Cloudtopolis** es una herramienta que facilita la instalación y el aprovisionamiento de Hashtopolis en la plataforma Google Cloud Shell, de forma rápida y totalmente desatendida.
@@ -18,7 +18,7 @@ Acceder a Google Cloud Shell desde el siguiente enlace:
 
 https://ssh.cloud.google.com/cloudshell/editor?hl=es&fromcloudshell=true&shellonly=true
 
-Ejecutar los siguientes comandos:
+A continuación, ejecutar los siguientes comandos:
 ```
 wget https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh
 chmod +x Cloudtopolis.sh
@@ -84,7 +84,7 @@ Access Google Cloud Shell from the following link:
 
 https://ssh.cloud.google.com/cloudshell/editor?hl=es&fromcloudshell=true&shellonly=true
 
-Run the following commands:
+Then, run the following commands:
 ```
 wget https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh
 chmod + x Cloudtopolis.sh
@@ -101,6 +101,7 @@ https://colab.research.google.com/github/JoelGMSec/Cloudtopolis/blob/master/Clou
 It is necessary to fill in the fields in the "Requeriments" section with the data obtained in Google Cloud Shell and Hashtopolis.
 
 Finally, run the solution until the agent is registered with Hashtopolis.
+
 
 # Use
 
