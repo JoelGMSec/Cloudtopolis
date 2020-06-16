@@ -51,11 +51,13 @@ https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
 # Licencia
 Este proyecto está licenciando bajo la licencia GNU 3.0 - ver el fichero LICENSE para más detalles.
 
-A continuación se adjuntan los términos y condiciones de Google Colaboratory, así como las preguntas frecuentes:
+A continuación se adjuntan los términos y condiciones de NVIDIA y Google Colaboratory, así como las preguntas frecuentes:
 
 https://colab.research.google.com/pro/terms
 
 https://research.google.com/colaboratory/faq.html
+
+https://cloud.google.com/terms/service-terms/nvidia
 
 
 # Créditos y Agradecimientos
@@ -127,11 +129,13 @@ https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
 # License
 This project is licensed under the GNU 3.0 license - see the LICENSE file for more details.
 
-The following are the Google Colaboratory terms and conditions, as well as the frequently asked questions:
+The following are the NVIDIA and Google Colaboratory terms and conditions, as well as the frequently asked questions:
 
 https://colab.research.google.com/pro/terms
 
 https://research.google.com/colaboratory/faq.html
+
+https://cloud.google.com/terms/service-terms/nvidia
 
 
 # Credits and Acknowledgments
