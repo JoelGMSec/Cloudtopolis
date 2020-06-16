@@ -51,6 +51,12 @@ https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
 # Licencia
 Este proyecto está licenciando bajo la licencia GNU 3.0 - ver el fichero LICENSE para más detalles.
 
+A continuación se adjuntan los términos y condiciones de Google Colaboratory, así como las preguntas frecuentes:
+
+https://colab.research.google.com/pro/terms
+
+https://research.google.com/colaboratory/faq.html
+
 
 # Créditos y Agradecimientos
 Esta herramienta ha sido creada y diseñada desde cero por Joel Gámez Molina // @JoelGMSec
@@ -121,6 +127,12 @@ https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
 # License
 This project is licensed under the GNU 3.0 license - see the LICENSE file for more details.
 
+The following are the Google Colaboratory terms and conditions, as well as the frequently asked questions:
+
+https://colab.research.google.com/pro/terms
+
+https://research.google.com/colaboratory/faq.html
+
 
 # Credits and Acknowledgments
 This tool has been created and designed from scratch by Joel Gámez Molina // @JoelGMSec
@@ -136,3 +148,4 @@ Hashcat: https://github.com/hashcat/hashcat
 This software does not offer any kind of guarantee. Its use is exclusive for educational environments and / or security audits with the corresponding consent of the client. I am not responsible for its misuse or for any possible damage caused by it.
 
 For more information, you can contact through info@darkbyte.net
+
