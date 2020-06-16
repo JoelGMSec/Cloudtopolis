@@ -34,13 +34,13 @@ https://colab.research.google.com/github/JoelGMSec/Cloudtopolis/blob/master/Clou
 
 Es necesario rellenar los campos en la sección "Requeriments" con los datos obtenidos en Google Cloud Shell y Hashtopolis.
 
-Para ello, puedes acceder directamente desde la siguiente url:
+Para ello, puedes acceder a Hashtopolis directamente desde la siguiente url:
 
 https://ssh.cloud.google.com/devshell/proxy?authuser=0&port=8000&environment_id=default
 
 O a través de un túnel SSH, siguiendo las instrucciones que aparecen tras la ejecución del primer script.
 
-Por último, ejecutar la solución hasta que el agente aparezca registrado en Hashtopolis.
+Por último, ejecutar el código de Colaboratory hasta que el agente aparezca registrado en Hashtopolis.
 
 
 # Uso
@@ -118,13 +118,13 @@ https://colab.research.google.com/github/JoelGMSec/Cloudtopolis/blob/master/Clou
 
 It is necessary to fill the fields in the "Requeriments" section with the data obtained in Google Cloud Shell and Hashtopolis.
 
-For this, you can access directly from the following url:
+For this, you can access to Hashtopolis directly from the following url:
 
 https://ssh.cloud.google.com/devshell/proxy?authuser=0&port=8000&environment_id=default
 
 Or through an SSH tunnel, following the instructions that appear after the execution of the first script.
 
-Finally, run the solution until the agent is registered with Hashtopolis.
+Finally, run the Colaboratory code until the agent is registered with Hashtopolis.
 
 
 # Use
