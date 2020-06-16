@@ -56,7 +56,9 @@ Este proyecto está licenciando bajo la licencia GNU 3.0 - ver el fichero LICENS
 Esta herramienta ha sido creada y diseñada desde cero por Joel Gámez Molina // @JoelGMSec
 
 Idea original de @mxrch, inspirado en Penglab: https://github.com/mxrch/penglab
+
 Hashtopolis de Sein Coray: https://github.com/s3inlc/hashtopolis
+
 Hashcat: https://github.com/hashcat/hashcat
 
 
@@ -124,7 +126,9 @@ This project is licensed under the GNU 3.0 license - see the LICENSE file for mo
 This tool has been created and designed from scratch by Joel Gámez Molina // @JoelGMSec
 
 Original idea from @mxrch, inspired by Penglab: https://github.com/mxrch/penglab
+
 Hashtopolis by Sein Coray: https://github.com/s3inlc/hashtopolis
+
 Hashcat: https://github.com/hashcat/hashcat
 
 
