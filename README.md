@@ -45,7 +45,7 @@ No es necesario repetir la fase 1 en ningún momento, puedes utilizar tus otras 
 
 La guía detallada de instalación, uso y consejos se encuentra en el siguiente enlace:
 
-https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube
+https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
 
 
 # Licencia
@@ -115,7 +115,7 @@ It is not necessary to repeat phase 1 at any time, you can use your other accoun
 
 The detailed guide for installation, use and advice is at the following link:
 
-https://darkbyte.net/cloudtopolis-break-hashes-en-la-nube
+https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
 
 
 # License
