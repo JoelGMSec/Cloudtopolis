@@ -1,6 +1,6 @@
 #!/bin/bash
 #######################################
-#   Cloudtopolis v1.0 by @JoelGMSec   #
+#   Cloudtopolis v2.0 by @JoelGMSec   #
 #        https://darkbyte.net         #
 #######################################
 
