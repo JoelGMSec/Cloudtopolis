@@ -21,8 +21,8 @@ https://ssh.cloud.google.com/cloudshell/editor?hl=es&fromcloudshell=true&shellon
 Then, run the following commands:
 ```
 wget https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh
-chmod + x Cloudtopolis.sh
-./Clodutopolis.sh
+chmod +x Cloudtopolis.sh
+./Cloudtopolis.sh
 ```
 
 
@@ -107,7 +107,7 @@ A continuación, ejecutar los siguientes comandos:
 ```
 wget https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh
 chmod +x Cloudtopolis.sh
-./Clodutopolis.sh
+./Cloudtopolis.sh
 ```
 
 
