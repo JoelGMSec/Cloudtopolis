@@ -49,6 +49,17 @@ After installation is complete, more agents can be added by repeating phase 2 as
 For this, it is necessary to use 1 Google account for each instance of Colaboratory. 
 It is not necessary to repeat phase 1 at any time, you can use your other accounts or those of your friends and colleagues.
 
+```
+Now it is possible to select additional options!
+
+AllwaysP100 = If selected, the script will not run unless the assigned GPU is a TESLA P100
+Kaonashi = Will download Kaonashi.txt dictionary and OneRuleToRuleThemAll rule
+Rockyou = Will download the dictionary rockyou.txt
+
+To load them, it is only necessary to change "False" to "True" before starting the code from the notebook. 
+By default, only Rockyou is selected to load at startup.
+```
+
 The detailed guide for installation, use and advice is at the following link:
 
 https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
@@ -133,6 +144,17 @@ Por último, ejecutar el código de Colaboratory hasta que el agente aparezca re
 Una vez terminada la instalación, pueden añadirse más agentes repitiendo la fase 2 tantas veces como se desee. 
 Para ello, es necesario utilizar 1 cuenta de Google por cada instancia de Colaboratory. 
 No es necesario repetir la fase 1 en ningún momento, puedes utilizar tus otras cuentas o las de tus amigos y compañeros.
+
+```
+Ahora es posible seleccionar opciones adicionales!
+
+AllwaysP100= Si se selecciona, el script no se ejecutará a no ser que la GPU asignada sea una TESLA P100
+Kaonashi= Descargará el diccionario Kaonashi.txt y la regla OneRuleToRuleThemAll
+Rockyou= Descargará el diccionario rockyou.txt
+
+Para cargarlas, solo es necesario cambiar "False" por "True" antes de arrancar el código del cuaderno. 
+Por defecto, solo Rockyou está seleccionado para cargarse al inicio.
+```
 
 La guía detallada de instalación, uso y consejos se encuentra en el siguiente enlace:
 
