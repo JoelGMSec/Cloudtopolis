@@ -54,7 +54,7 @@ Now it is possible to select additional options!
 
 AllwaysP100 = If selected, the script will not run unless the assigned GPU is a TESLA P100
 Kaonashi = Will download Kaonashi.txt dictionary and OneRuleToRuleThemAll rule
-Rockyou = Will download the dictionary rockyou.txt
+Rockyou = Will download rockyou.txt dictionary
 
 To load them, it is only necessary to change "False" to "True" before starting the code from the notebook. 
 By default, only Rockyou is selected to load at startup.
