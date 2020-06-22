@@ -18,7 +18,7 @@ Access Google Cloud Shell from the following link:
 
 https://ssh.cloud.google.com/cloudshell/editor?hl=es&fromcloudshell=true&shellonly=true
 
-Then, run the following commands:
+Then, run the following commands inside this terminal:
 ```
 wget https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh
 chmod +x Cloudtopolis.sh
@@ -114,7 +114,7 @@ Acceder a Google Cloud Shell desde el siguiente enlace:
 
 https://ssh.cloud.google.com/cloudshell/editor?hl=es&fromcloudshell=true&shellonly=true
 
-A continuación, ejecutar los siguientes comandos:
+A continuación, ejecutar los siguientes comandos dentro de esta terminal:
 ```
 wget https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh
 chmod +x Cloudtopolis.sh
