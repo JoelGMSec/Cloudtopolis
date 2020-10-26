@@ -53,7 +53,7 @@ Additional options:
 Kaonashi = Download Kaonashi dictionary.txt
 Kaonashi_WPA = Download Kaonashi_WPA100M.txt
 Rockyou = Download the rockyou.txt dictionary
-OneRule = Will download the OneRuleToRuleThemAll rule
+OneRule = Download the OneRuleToRuleThemAll rule
 
 VPS = Enable VPS mode, to connect to your own Hashtopolis server via SSH
 SshHost = Here you must enter the host or public IP of the VPS server
