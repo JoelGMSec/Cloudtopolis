@@ -1,7 +1,7 @@
 <p align="center"><img width=500 alt="Cloudtopolis" src="https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.png"></p>
 
 
-**Cloudtopolis** is a tool that facilitates the installation and provisioning of Hashtopolis on the Google Cloud Shell platform, quickly and completely unattended (and also, free!).
+**Cloudtopolis** is a tool that facilitates the installation and provisioning of Hashtopolis on the Google Cloud Shell platform, quickly and completely unattended (and also, free!). Together with Google Collaboratory, it allows us to break hashes without the need for dedicated hardware from any browser.
 
 
 # Requirements
@@ -28,39 +28,44 @@ chmod +x Cloudtopolis.sh
 
 ### Phase 2
 
-Access Google Colaboratory through the following link:
+Access Google Collaboratory through the following link:
 
 https://colab.research.google.com/github/JoelGMSec/Cloudtopolis/blob/master/Cloudtopolis.ipynb
 
-It is necessary to fill the fields in the "Requeriments" section with the data obtained in Google Cloud Shell and Hashtopolis.
+It is necessary to fill in the fields in the "Requeriments" section with the data obtained in Hashtopolis.
 
-For this, you can access to Hashtopolis directly from the following url:
+You can access Hashtopolis directly (provided it is running) from the following url:
 
 https://ssh.cloud.google.com/devshell/proxy?authuser=0&port=8000&environment_id=default
 
-Or through an SSH tunnel, following the instructions that appear after the execution of the first script.
-
-Finally, run the Colaboratory code until the agent is registered with Hashtopolis.
+Finally, execute the Collaboratory code until the agent appears registered in Hashtopolis.
 
 
-# Use
+# Usage
 
-After installation is complete, more agents can be added by repeating phase 2 as many times as desired. 
-For this, it is necessary to use 1 Google account for each instance of Colaboratory. 
+Once the installation is completed, more agents can be added by repeating phase 2 as many times as desired. 
+To do this, it is necessary to use 1 Google account for each instance of the Collaboratory. 
 It is not necessary to repeat phase 1 at any time, you can use your other accounts or those of your friends and colleagues.
 
 ```
-Now it is possible to select additional options!
+Additional options:
 
-AllwaysP100 = If selected, the script will not run unless the assigned GPU is a TESLA P100
-Kaonashi = Will download Kaonashi.txt dictionary and OneRuleToRuleThemAll rule
-Rockyou = Will download rockyou.txt dictionary
+Kaonashi = Download Kaonashi dictionary.txt
+Kaonashi_WPA = Download Kaonashi_WPA100M.txt
+Rockyou = Download the rockyou.txt dictionary
+OneRule = Will download the OneRuleToRuleThemAll rule
 
-To load them, it is only necessary to change "False" to "True" before starting the code from the notebook. 
+VPS = Enable VPS mode, to connect to your own Hashtopolis server via SSH
+SshHost = Here you must enter the host or public IP of the VPS server
+SshPort = Here you must enter the SSH port of the VPS server
+SshUser = Here you must enter the user of the VPS server
+SshPass = Here you must enter the password of the VPS server
+
+To load them, it is only necessary to change "False" to "True" before starting the code of the notebook. 
 By default, only Rockyou is selected to load at startup.
 ```
 
-The detailed guide for installation, use and advice is at the following link:
+The detailed guide of installation, use and advice can be found in the following link:
 
 https://darkbyte.net/cloudtopolis-rompiendo-hashes-en-la-nube-gratis
 
@@ -97,7 +102,7 @@ For more information, you can contact through info@darkbyte.net
 # Spanish description
 
 
-**Cloudtopolis** es una herramienta que facilita la instalación y el aprovisionamiento de Hashtopolis en la plataforma Google Cloud Shell, de forma rápida y totalmente desatendida (y además, gratis!).
+**Cloudtopolis** es una herramienta que facilita la instalación y el aprovisionamiento de Hashtopolis en la plataforma Google Cloud Shell, de forma rápida y totalmente desatendida (y además, gratis!). Junto con Google Colaboratory, nos permite romper hashes sin necesidad de hardware dedicado desde cualquier navegador.
 
 
 # Requisitos
@@ -128,13 +133,11 @@ Acceder a Google Colaboratory a través del siguiente enlace:
 
 https://colab.research.google.com/github/JoelGMSec/Cloudtopolis/blob/master/Cloudtopolis.ipynb
 
-Es necesario rellenar los campos en la sección "Requeriments" con los datos obtenidos en Google Cloud Shell y Hashtopolis.
+Es necesario rellenar los campos en la sección "Requeriments" con los datos obtenidos en Hashtopolis.
 
-Para ello, puedes acceder a Hashtopolis directamente desde la siguiente url:
+Puedes acceder directamente a Hashtopolis (siempre que se encuentre en ejecución) desde la siguiente url:
 
 https://ssh.cloud.google.com/devshell/proxy?authuser=0&port=8000&environment_id=default
-
-O a través de un túnel SSH, siguiendo las instrucciones que aparecen tras la ejecución del primer script.
 
 Por último, ejecutar el código de Colaboratory hasta que el agente aparezca registrado en Hashtopolis.
 
@@ -146,11 +149,18 @@ Para ello, es necesario utilizar 1 cuenta de Google por cada instancia de Colabo
 No es necesario repetir la fase 1 en ningún momento, puedes utilizar tus otras cuentas o las de tus amigos y compañeros.
 
 ```
-Ahora es posible seleccionar opciones adicionales!
+Opciones adicionales:
 
-AllwaysP100= Si se selecciona, el script no se ejecutará a no ser que la GPU asignada sea una TESLA P100
-Kaonashi= Descargará el diccionario Kaonashi.txt y la regla OneRuleToRuleThemAll
-Rockyou= Descargará el diccionario rockyou.txt
+Kaonashi = Descargará el diccionario Kaonashi.txt
+Kaonashi_WPA = Descargará el diccionario Kaonashi_WPA100M.txt
+Rockyou = Descargará el diccionario rockyou.txt
+OneRule = Descargará la regla OneRuleToRuleThemAll
+
+VPS = Habilita el modo VPS, para conectarse a un servidor de Hashtopolis propio a través de SSH
+SshHost = Aquí debes introducir el host o la IP pública del servidor VPS
+SshPort = Aquí debes introducir el puerto SSH del servidor VPS
+SshUser = Aquí debes introducir el usuario del servidor VPS
+SshPass = Aquí debes introducir la contraseña del servidor VPS
 
 Para cargarlas, solo es necesario cambiar "False" por "True" antes de arrancar el código del cuaderno. 
 Por defecto, solo Rockyou está seleccionado para cargarse al inicio.
