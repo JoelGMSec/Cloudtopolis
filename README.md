@@ -50,8 +50,8 @@ It is not necessary to repeat phase 1 at any time, you can use your other accoun
 ```
 Additional options:
 
-Kaonashi = Download Kaonashi dictionary.txt
-Kaonashi_WPA = Download Kaonashi_WPA100M.txt
+Kaonashi = Download the Kaonashi.txt dictionary
+Kaonashi_WPA = Download the Kaonashi_WPA100M.txt dictionary
 Rockyou = Download the rockyou.txt dictionary
 OneRule = Download the OneRuleToRuleThemAll rule
 
