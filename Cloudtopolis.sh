@@ -116,5 +116,5 @@ echo -e "\e[36;1m[i] Cloudtopolis is running!"
 echo -e "\e[0;1mPress \e[35;1mCTRL+C \e[0;1mto stop.."
 echo -e "\e[0m"
 
-trap 'docker rm -f $(docker container ls -q) > /dev/null 2>&1 ; echo ; exit' SIGINT SIGTERM EXIT
+trap 'docker rm -f $(docker container ls -q -a) > /dev/null 2>&1 ; echo ; exit' SIGINT SIGTERM EXIT
 while true ; do sleep 1 ; done
