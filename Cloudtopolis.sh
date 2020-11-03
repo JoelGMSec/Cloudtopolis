@@ -21,7 +21,7 @@ echo -e "\e[32;1m[+] Checking Environment..\e[0;1m"
 if ping -c 1 169.254.169.254 &> /dev/null ; then
 
 AzureCloud="$(curl -s -H Metadata:true http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text)"
-AmazonCloud="$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)"
+AmazonCloud="$(curl -s http://169.254.169.254/1.0/meta-data/local-ipv4)"
 GoogleCloud="$(curl -s -H 'Metadata-Flavor: Google' http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip)"
 
 AzureCheck="$(echo $AzureCloud | grep 404)"
