@@ -6,7 +6,7 @@
 
 clear
 echo -e "\e[34;1m
-   ____ _                 _ _                    _ _ 
+   ____ _                 _ _                    _ _
   / ___| | ___  _   _  __| | |_ ___  _ __   ___ | (_)___
  | |   | |/ _ \| | | |/ _' | __/ _ \| '_ \ / _ \| | / __|
  | |___| | (_) | |_| | (_| | || (_) | |_) | (_) | | \__ \\
@@ -52,7 +52,7 @@ echo -e "\e[32;1m[+] Checking Docker installation..\e[0;1m"
 
 if docker -v &> /dev/null ; then
 	if not "$(service docker status | grep Active)" &> /dev/null ; then
-    	sudo systemctl start docker	    
+    	sudo systemctl start docker
     else
         echo -e "\e[0;1mDocker is installed and running!"
     fi
@@ -61,7 +61,7 @@ else
     echo -e "\e[0;1mDocker is not installed!"
     echo -e "\e[0m"
     echo -e "\e[32;1m[+] Installing Docker Community Edition..\e[0;1m"
-    
+
     curl -fsSL https://download.docker.com/linux/debian/gpg > apt.key ; sudo apt-key add apt.key > /dev/null 2>&1 ; rm apt.key > /dev/null 2>&1
     sudo echo 'deb [arch=amd64] https://download.docker.com/linux/debian buster stable' > /etc/apt/sources.list.d/docker.list
     sudo apt-get update > /dev/null 2>&1 ; sudo apt-get remove docker docker-engine docker.io -y -qq > /dev/null 2>&1
@@ -69,13 +69,15 @@ else
     echo -e "\e[0;1mDone!"
 fi
 
+sudo mkdir Cloudtopolis > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/mysql > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/inc > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/import > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/files > /dev/null 2>&1
+
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing MySQL Database..\e[0;1m"
-sudo docker run --name mydb -e MYSQL_ROOT_PASSWORD=Cl0udt0p0l1s! -d mysql:5.7
+sudo docker run --name mysql -v $(pwd)/Cloudtopolis/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Cl0udt0p0l1s! -d mysql:5.7
 
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing Hashtopolis..\e[0;1m"
-sudo docker run --name hashtopolis --link mydb:mysql -e H8_USER="admin" -e H8_PASS="Cl0udt0p0l1s!" -d -p 8000:80 kpeiruza/hashtopolis
+sudo docker run --name hashtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS="Cl0udt0p0l1s!" -d -p 8000:80 kpeiruza/hashtopolis
 
 if [[ $CustomVPS ]] ; then
 
