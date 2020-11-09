@@ -73,7 +73,7 @@ sudo mkdir Cloudtopolis > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/mysql > /dev/
 
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing MySQL Database..\e[0;1m"
-sudo docker run --name mysql -v $(pwd)/Cloudtopolis/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Cl0udt0p0l1s! -d mysql:5.7
+sudo docker run --name mysql -v $(pwd)/Cloudtopolis/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="Cl0udt0p0l1s!" -d mysql:5.7
 
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing Hashtopolis..\e[0;1m"
@@ -118,5 +118,6 @@ echo -e "\e[36;1m[i] Cloudtopolis is running!"
 echo -e "\e[0;1mPress \e[35;1mCTRL+C \e[0;1mto stop.."
 echo -e "\e[0m"
 
+sudo chmod -R 777 Cloudtopolis
 trap 'docker rm -f $(docker container ls -q -a) > /dev/null 2>&1 ; echo ; exit' SIGINT SIGTERM EXIT
 while true ; do sleep 1 ; done
