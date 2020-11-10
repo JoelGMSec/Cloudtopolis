@@ -90,7 +90,6 @@ sudo docker build --quiet -t kartoza/ssh git://github.com/timlinux/docker-ssh
 fi
 
 sudo docker run --name ssh --link hashtopolis:hashtopolis -p 2222:22 -d -t kartoza/ssh
-sleep 3
 fi
 
 CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/hashtopolis"
@@ -98,9 +97,16 @@ CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/hashtopolis"
 if [ ! -d $CloudtopolisDB ] ; then
     echo -e "\e[0m"
     echo -e "\e[35;1m[!] Cloudtopolis database not found!"
-    sleep 3
+    sleep 1
     echo -e "\e[0;1mWait until setup is finished.."
     until [ -d $CloudtopolisDB ] ; do [ -d $CloudtopolisDB ] ; done
+
+else
+    echo -e "\e[0m"
+    echo -e "\e[36;1m[i] Cloudtopolis database found!"
+    sleep 1
+    echo -e "\e[0;1mRestoring data from last session.."
+    sleep 3
 fi
 
 if [[ $CustomVPS ]] ; then
@@ -128,6 +134,5 @@ echo -e "\e[36;1m[i] Cloudtopolis is running!"
 echo -e "\e[0;1mPress \e[35;1mCTRL+C \e[0;1mto stop.."
 echo -e "\e[0m"
 
-sudo chmod -R 777 Cloudtopolis
 trap 'docker rm -f $(docker container ls -q -a) > /dev/null 2>&1 ; echo ; exit' SIGINT SIGTERM EXIT
-while true ; do sleep 1 ; done
+while true ; do sudo chmod -R 777 Cloudtopolis && sleep 3 ; done
