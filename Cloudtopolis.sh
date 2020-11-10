@@ -93,6 +93,16 @@ fi
 sudo docker run --name ssh --link hashtopolis:hashtopolis -p 2222:22 -d -t kartoza/ssh
 sleep 3
 
+CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/hashtopolis"
+
+if [ ! -d $CloudtopolisDB ] ; then
+    echo -e "\e[0m"
+    echo -e "\e[35;1m[!] Cloudtopolis database not found!"
+    sleep 3
+    echo -e "\e[0;1mWait until setup is finished.."
+    until [ -d $CloudtopolisDB ] ; do [ -d $CloudtopolisDB ] ; done
+fi
+
 SshHost="$(echo $IP)"
 SshPort="2222"
 SshUser="root"
