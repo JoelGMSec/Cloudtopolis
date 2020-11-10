@@ -80,7 +80,6 @@ echo -e "\e[32;1m[+] Installing Hashtopolis..\e[0;1m"
 sudo docker run --name hashtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS="Cl0udt0p0l1s!" -d -p 8000:80 kpeiruza/hashtopolis
 
 if [[ $CustomVPS ]] ; then
-
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing SSH Access..\e[0;1m"
 
@@ -92,6 +91,7 @@ fi
 
 sudo docker run --name ssh --link hashtopolis:hashtopolis -p 2222:22 -d -t kartoza/ssh
 sleep 3
+fi
 
 CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/hashtopolis"
 
@@ -103,6 +103,7 @@ if [ ! -d $CloudtopolisDB ] ; then
     until [ -d $CloudtopolisDB ] ; do [ -d $CloudtopolisDB ] ; done
 fi
 
+if [[ $CustomVPS ]] ; then
 SshHost="$(echo $IP)"
 SshPort="2222"
 SshUser="root"
@@ -115,7 +116,6 @@ echo -e "SshHost = '$SshHost'"
 echo -e "SshPort = '$SshPort'"
 echo -e "SshUser = '$SshUser'"
 echo -e "SshPass = '$SshPass'"
-
 fi
 
 echo -e "\e[0m"
