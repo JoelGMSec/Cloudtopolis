@@ -1,9 +1,4 @@
-<<<<<<< Updated upstream
-<p align="center"><img width=550 alt="Cloudtopolis" src="https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.png"></p>
-=======
 <p align="center"><img width=550 alt="Cloudtopolis" src="https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Resources/Design/Cloudtopolis.png"></p>
->>>>>>> Stashed changes
-
 
 **Cloudtopolis** is a tool that facilitates the installation and provisioning of Hashtopolis on the Google Cloud Shell platform, quickly and completely unattended (and also, free!). Together with Google Collaboratory, it allows us to break hashes without the need for dedicated hardware from any browser.
 
