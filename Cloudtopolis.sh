@@ -21,7 +21,7 @@ echo -e "\e[34;1m
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Checking Environment..\e[37;1m"
 
-if ping -c 1 169.254.169.254 &> /dev/null ; then
+if curl 169.254.169.254 &> /dev/null ; then
 
 AzureCloud="$(curl -s -H Metadata:true http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text)"
 AmazonCloud="$(curl -s http://169.254.169.254/1.0/meta-data/local-ipv4)"
