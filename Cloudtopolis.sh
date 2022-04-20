@@ -133,11 +133,17 @@ echo -e "\e[31;1mSshUser = \e[37;1m'$SshUser'"
 echo -e "\e[31;1mSshPass = \e[37;1m'$SshPass'"
 fi
 
+rm -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
+/bin/sh -c "echo 'localhost.run ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3lJnhW1oCXuAYV9IBdcJA+Vx7AHL5S/ZQvV2fhceOAPgO2kNQZla6xvUwoE4iw8lYu3zoE1KtieCU9yInWOVI6W/wFaT/ETH1tn55T2FVsK/zaxPiHZVJGLPPdEEid0vS2p1JDfc9onZ0pNSHLl1QusIOeMUyZ2bUMMLLgw46KOT9S3s/LmxgoJ3PocVUn5rVXz/Dng7Y8jYNe4IFrZOAUsi7hNBa+OYja6ceefpDvNDEJ1BdhbYfGolBdNA7f+FNl0kfaWru4Cblr843wBe2ckO/sNqgeAMXO/qH+SSgQxUXF2AgAw+TGp3yCIyYoOPvOgvcPsQziJLmDbUuQpnH' > ${HOME}/.ssh/localhost.run.known_hosts" > /dev/null 2>&1
+ssh-keygen -q -t rsa -b 2048 -q -N "" -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
+/bin/sh -c "ssh -t -o ServerAliveInterval=60 -o UserKnownHostsFile=${HOME}/.ssh/localhost.run.known_hosts -o IdentitiesOnly=true -i "~/.ssh/localhost.run.rsa" -R "80:localhost:8000" localhost.run > /tmp/localhost.run < /dev/null 2>&1 &"
+sleep 3 ; Link="$(cat /tmp/localhost.run | awk '{ print $6 }' | grep http)"
+
 echo -e "\e[0m"
 echo -e "\e[34;1m[i] Hashtopolis Credentials:"
 echo -e "\e[31;1mUser: \e[37;1madmin"
 echo -e "\e[31;1mPassword: \e[37;1mCl0udt0p0l1s!"
-echo -e "\e[31;1mUrl: \e[37;4mhttp://localhost:8000\e[30m"
+echo -e "\e[31;1mLink: \e[37;4m$Link\e[30m"
 echo -e "\e[0m"
 echo -e "\e[34;1m[i] Cloudtopolis is running!"
 echo -e "\e[37;1mPress \e[31;1mControl+C \e[37;1mto stop.."
