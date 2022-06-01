@@ -77,14 +77,16 @@ fi
 
 sudo mkdir Cloudtopolis > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/mysql > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/inc > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/import > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/files > /dev/null 2>&1
 
+UUID=$(cat /proc/sys/kernel/random/uuid)
+
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing MySQL Database..\e[37;1m"
-sudo docker run --rm --name mysql -v $(pwd)/Cloudtopolis/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="Cl0udt0p0l1s!" -d mysql:5.7 > /dev/null 2>&1
+sudo docker run --rm --name mysql -v $(pwd)/Cloudtopolis/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=$UUID -d mysql:5.7 > /dev/null 2>&1
 echo -e "\e[37;1mDone!"
 
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing Hashtopolis..\e[37;1m"
-sudo docker run --rm --name hashtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS="Cl0udt0p0l1s!" -d -p 8000:80 kpeiruza/hashtopolis > /dev/null 2>&1
+sudo docker run --rm --name hashtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS=$UUID -d -p 8000:80 kpeiruza/hashtopolis > /dev/null 2>&1
 echo -e "\e[37;1mDone!"
 
 if [[ $CustomVPS ]] ; then
@@ -142,7 +144,7 @@ sleep 3 ; Link="$(cat /tmp/localhost.run | awk '{ print $6 }' | grep http)"
 echo -e "\e[0m"
 echo -e "\e[34;1m[i] Hashtopolis Credentials:"
 echo -e "\e[31;1mUser: \e[37;1madmin"
-echo -e "\e[31;1mPassword: \e[37;1mCl0udt0p0l1s!"
+echo -e "\e[31;1mPassword: \e[37;1m$UUID!"
 echo -e "\e[31;1mLink: \e[37;4m$Link\e[30m"
 echo -e "\e[0m"
 echo -e "\e[34;1m[i] Cloudtopolis is running!"
