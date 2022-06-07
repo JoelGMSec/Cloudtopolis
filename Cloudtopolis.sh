@@ -77,12 +77,11 @@ fi
 
 sudo mkdir Cloudtopolis > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/mysql > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/inc > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/import > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/files > /dev/null 2>&1
 
-if sudo test -f "$(pwd)/Cloudtopolis/.creds" ; then
-        echo -e "\e[32;1m[+] Found credentials file, using those\e[37;1m"
-        UUID=$(cat Cloudtopolis/.creds)
+if  sudo test -f "$(pwd)/Cloudtopolis/.creds" ; then
+    UUID=$(cat Cloudtopolis/.creds)
 else
-        UUID=$(cat /proc/sys/kernel/random/uuid)
-        sudo sh -c "echo -n $UUID > $(pwd)/Cloudtopolis/.creds"
+    UUID=$(cat /proc/sys/kernel/random/uuid | tr -d "-" | tail -c 24)
+    sudo sh -c "echo -n $UUID > $(pwd)/Cloudtopolis/.creds"
 fi
 
 echo -e "\e[0m"
@@ -127,6 +126,7 @@ else
 fi
 
 if [[ $CustomVPS ]] ; then
+Link="http://localhost:8000"
 SshHost="$(echo $IP)"
 SshPort="22"
 SshUser="root"
@@ -141,11 +141,13 @@ echo -e "\e[31;1mSshUser = \e[37;1m'$SshUser'"
 echo -e "\e[31;1mSshPass = \e[37;1m'$SshPass'"
 fi
 
+if [[ ! $CustomVPS ]] ; then
 rm -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
 /bin/sh -c "echo 'localhost.run ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3lJnhW1oCXuAYV9IBdcJA+Vx7AHL5S/ZQvV2fhceOAPgO2kNQZla6xvUwoE4iw8lYu3zoE1KtieCU9yInWOVI6W/wFaT/ETH1tn55T2FVsK/zaxPiHZVJGLPPdEEid0vS2p1JDfc9onZ0pNSHLl1QusIOeMUyZ2bUMMLLgw46KOT9S3s/LmxgoJ3PocVUn5rVXz/Dng7Y8jYNe4IFrZOAUsi7hNBa+OYja6ceefpDvNDEJ1BdhbYfGolBdNA7f+FNl0kfaWru4Cblr843wBe2ckO/sNqgeAMXO/qH+SSgQxUXF2AgAw+TGp3yCIyYoOPvOgvcPsQziJLmDbUuQpnH' > ${HOME}/.ssh/localhost.run.known_hosts" > /dev/null 2>&1
 ssh-keygen -q -t rsa -b 2048 -q -N "" -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
 /bin/sh -c "ssh -t -o ServerAliveInterval=60 -o StrictHostKeyChecking=no -o UserKnownHostsFile=${HOME}/.ssh/localhost.run.known_hosts -o IdentitiesOnly=true -i "~/.ssh/localhost.run.rsa" -R "80:localhost:8000" localhost.run > /tmp/localhost.run < /dev/null 2>&1 &"
 sleep 3 ; Link="$(cat /tmp/localhost.run | awk '{ print $6 }' | grep http)"
+fi
 
 echo -e "\e[0m"
 echo -e "\e[34;1m[i] Hashtopolis Credentials:"
