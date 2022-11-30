@@ -67,7 +67,7 @@ else
     echo -e "\e[0m"
     echo -e "\e[32;1m[+] Installing Docker Community Edition..\e[37;1m"
 
-    sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common npm -y -qq > /dev/null 2>&1
+    sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y -qq > /dev/null 2>&1
     curl -fsSL https://download.docker.com/linux/debian/gpg > apt.key ; sudo apt-key add apt.key > /dev/null 2>&1 ; rm apt.key > /dev/null 2>&1
     sudo echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
     sudo apt-get update > /dev/null 2>&1 ; sudo apt-get remove docker docker-engine docker.io -y -qq > /dev/null 2>&1
@@ -142,6 +142,7 @@ echo -e "\e[31;1mSshPass = \e[37;1m'$SshPass'"
 fi
 
 if [[ ! $CustomVPS ]] ; then
+sudo apt install npm -y -qq > /dev/null 2>&1
 sudo npm install -g localtunnel > /dev/null 2>&1 ; sleep 3
 /bin/bash -c "lt --port 8000 > /tmp/localtunnel &" > /dev/null 2>&1 ; sleep 3
 Link=$(cat /tmp/localtunnel | awk '{print $4}')
