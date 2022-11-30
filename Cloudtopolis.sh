@@ -67,7 +67,7 @@ else
     echo -e "\e[0m"
     echo -e "\e[32;1m[+] Installing Docker Community Edition..\e[37;1m"
 
-    sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y -qq > /dev/null 2>&1
+    sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common npm -y -qq > /dev/null 2>&1
     curl -fsSL https://download.docker.com/linux/debian/gpg > apt.key ; sudo apt-key add apt.key > /dev/null 2>&1 ; rm apt.key > /dev/null 2>&1
     sudo echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
     sudo apt-get update > /dev/null 2>&1 ; sudo apt-get remove docker docker-engine docker.io -y -qq > /dev/null 2>&1
@@ -142,11 +142,9 @@ echo -e "\e[31;1mSshPass = \e[37;1m'$SshPass'"
 fi
 
 if [[ ! $CustomVPS ]] ; then
-rm -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
-/bin/sh -c "echo 'localhost.run ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3lJnhW1oCXuAYV9IBdcJA+Vx7AHL5S/ZQvV2fhceOAPgO2kNQZla6xvUwoE4iw8lYu3zoE1KtieCU9yInWOVI6W/wFaT/ETH1tn55T2FVsK/zaxPiHZVJGLPPdEEid0vS2p1JDfc9onZ0pNSHLl1QusIOeMUyZ2bUMMLLgw46KOT9S3s/LmxgoJ3PocVUn5rVXz/Dng7Y8jYNe4IFrZOAUsi7hNBa+OYja6ceefpDvNDEJ1BdhbYfGolBdNA7f+FNl0kfaWru4Cblr843wBe2ckO/sNqgeAMXO/qH+SSgQxUXF2AgAw+TGp3yCIyYoOPvOgvcPsQziJLmDbUuQpnH' > ${HOME}/.ssh/localhost.run.known_hosts" > /dev/null 2>&1
-ssh-keygen -q -t rsa -b 2048 -q -N "" -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
-/bin/sh -c "ssh -t -o ServerAliveInterval=60 -o StrictHostKeyChecking=no -o UserKnownHostsFile=${HOME}/.ssh/localhost.run.known_hosts -o IdentitiesOnly=true -i "~/.ssh/localhost.run.rsa" -R "80:localhost:8000" localhost.run > /tmp/localhost.run < /dev/null 2>&1 &"
-sleep 3 ; Link="$(cat /tmp/localhost.run | awk '{ print $6 }' | grep http)"
+sudo npm install -g localtunnel > /dev/null 2>&1 ; sleep 3
+/bin/bash -c "lt --port 8000 > /tmp/localtunnel &" > /dev/null 2>&1 ; sleep 3
+Link=$(cat /tmp/localtunnel | awk '{print $4}')
 fi
 
 echo -e "\e[0m"
