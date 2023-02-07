@@ -142,10 +142,20 @@ echo -e "\e[31;1mSshPass = \e[37;1m'$SshPass'"
 fi
 
 if [[ ! $CustomVPS ]] ; then
-sudo apt install npm -y -qq > /dev/null 2>&1
-sudo npm install -g localtunnel > /dev/null 2>&1 ; sleep 3
-/bin/bash -c "lt --port 8000 > /tmp/localtunnel &" > /dev/null 2>&1 ; sleep 3
-Link=$(cat /tmp/localtunnel | awk '{print $4}')
+   LocalTunnelUP=$(curl --connect-timeout 3 -sk https://localtunnel.me)
+   if [[ $LocalTunnelUP ]] ; then
+      sudo apt install npm -y -qq > /dev/null 2>&1
+      sudo npm install -g localtunnel > /dev/null 2>&1 ; sleep 3
+      /bin/bash -c "lt --port 8000 > /tmp/localtunnel &" > /dev/null 2>&1 ; sleep 3
+      Link=$(cat /tmp/localtunnel | awk '{print $4}')
+   fi
+   if [[ ! $Link ]] ; then
+      rm -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
+      /bin/sh -c "echo 'localhost.run ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3lJnhW1oCXuAYV9IBdcJA+Vx7AHL5S/ZQvV2fhceOAPgO2kNQZla6xvUwoE4iw8lYu3zoE1KtieCU9yInWOVI6W/wFaT/ETH1tn55T2FVsK/zaxPiHZVJGLPPdEEid0vS2p1JDfc9onZ0pNSHLl1QusIOeMUyZ2bUMMLLgw46KOT9S3s/LmxgoJ3PocVUn5rVXz/Dng7Y8jYNe4IFrZOAUsi7hNBa+OYja6ceefpDvNDEJ1BdhbYfGolBdNA7f+FNl0kfaWru4Cblr843wBe2ckO/sNqgeAMXO/qH+SSgQxUXF2AgAw+TGp3yCIyYoOPvOgvcPsQziJLmDbUuQpnH' > ${HOME}/.ssh/localhost.run.known_hosts" > /dev/null 2>&1
+      ssh-keygen -q -t rsa -b 2048 -q -N "" -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
+      /bin/sh -c "ssh -t -o ServerAliveInterval=60 -o StrictHostKeyChecking=no -o UserKnownHostsFile=${HOME}/.ssh/localhost.run.known_hosts -o IdentitiesOnly=true -i "~/.ssh/localhost.run.rsa" -R "80:localhost:8000" localhost.run > /tmp/localhost.run < /dev/null 2>&1 &"
+      sleep 3 ; Link="$(cat /tmp/localhost.run | awk '{ print $6 }' | grep http)"
+   fi
 fi
 
 echo -e "\e[0m"
