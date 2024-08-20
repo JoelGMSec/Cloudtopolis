@@ -84,6 +84,8 @@ This tool has been created and designed from scratch by Joel Gámez Molina // @J
 
 Original idea from **@mxrch**, inspired in *Penglab* --> https://github.com/mxrch/penglab
 
+**docker-hashtopolis-server** by *kpeiruza* --> https://github.com/kpeiruza/docker-hashtopolis-server
+
 **Hashtopolis** by *Sein Coray* --> https://github.com/s3inlc/hashtopolis
 
 **Hashcat** --> https://github.com/hashcat/hashcat
