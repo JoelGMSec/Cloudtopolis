@@ -99,7 +99,7 @@ sudo docker build -t joelgmsec/cloudtopolis . > /dev/null 2>&1
 sudo docker run --rm --name cloudtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS="$RAND" -d -p 8000:80 joelgmsec/cloudtopolis > /dev/null 2>&1
 echo -e "\e[37;1mDone!"
 
-if [ ! -d $CloudtopolisDB ] ; then
+if [ ! -e $CloudtopolisDB ] ; then
     echo -e "\e[0m"
     echo -e "\e[31;1m[!] Cloudtopolis database not found!"
     sleep 1
