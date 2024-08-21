@@ -91,7 +91,7 @@ echo -e "\e[37;1mDone!"
 
 docker tag  mysql:5.7 cloudtopolis/database > /dev/null 2>&1
 docker rmi  mysql:5.7 > /dev/null 2>&1
-CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/hashtopolis"
+CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/mysql.sock"
 
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing Hashtopolis..\e[37;1m"
