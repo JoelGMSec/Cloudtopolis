@@ -19,7 +19,7 @@ https://ssh.cloud.google.com/cloudshell/editor?hl=es&fromcloudshell=true&shellon
 
 Then, run the following commands inside this terminal:
 ```
-curl https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh | bash
+curl -sk https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Cloudtopolis.sh | bash
 ```
 
 
