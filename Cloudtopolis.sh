@@ -95,6 +95,14 @@ CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/hashtopolis"
 
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing Hashtopolis..\e[37;1m"
+if [ ! -d "Resources" ] ; then
+    wget  -q https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/conf.php
+    wget  -q https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/adduser.php
+    wget  -q https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/Dockerfile
+    wget  -q https://raw.githubusercontent.com/JoelGMSec/Cloudtopolis/master/entrypoint.sh
+fi
+
+sudo chmod 775 -R *
 sudo docker build -t joelgmsec/cloudtopolis . > /dev/null 2>&1
 sudo docker run --rm --name cloudtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS="$RAND" -e MYSQL_USER="root" -e MYSQL_PASSWORD="$RAND" -d -p 8000:80 joelgmsec/cloudtopolis > /dev/null 2>&1
 echo -e "\e[37;1mDone!"
@@ -119,12 +127,16 @@ if [[ $CustomVPS ]] ; then
 fi
 
 if [[ ! $CustomVPS ]] ; then
+    rm -f conf.php* adduser.php* Dockerfile* entrypoint.sh*
+
    LocalTunnelUP=$(curl --connect-timeout 3 -sk https://localtunnel.me)
    if [[ $LocalTunnelUP ]] ; then
       sudo apt install npm -y -qq > /dev/null 2>&1
       sudo npm install -g localtunnel > /dev/null 2>&1 ; sleep 3
       /bin/bash -c "lt --port 8000 > /tmp/localtunnel &" > /dev/null 2>&1 ; sleep 3
-      Link=$(cat /tmp/localtunnel | awk '{print $4}')
+      LinkURL=$(cat /tmp/localtunnel | awk '{print $4}')
+      LinkPass=$(curl -sk https://loca.lt/mytunnelpassword)
+      Link=$(echo -e "$LinkURL\n\e[0m\e[31;1mLinkPass:\e[37;1m $LinkPass")
    fi
    if [[ ! $Link ]] ; then
       rm -f ${HOME}/.ssh/localhost.run.rsa > /dev/null 2>&1
