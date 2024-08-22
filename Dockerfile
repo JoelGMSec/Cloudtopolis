@@ -21,7 +21,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "ServerName Hashtopolis" > /etc/apache2/conf-enabled/serverName.conf && \
     rm -rf /var/lib/apt /var/lib/dpkg /var/cache/apt /usr/share/doc /usr/share/man /usr/share/info
 
-COPY entrypoint.sh /
+COPY entrypoint.sh 	/
 COPY conf.php /var/www/
 COPY adduser.php /var/www/html/install/
 

@@ -80,23 +80,23 @@ sudo mkdir Cloudtopolis > /dev/null 2>&1 ; sudo mkdir Cloudtopolis/mysql > /dev/
 if  sudo test -f "$(pwd)/Cloudtopolis/.creds" ; then
     RAND=$(cat Cloudtopolis/.creds)
 else
-    RAND=$(< /dev/urandom tr -dc 'A-Za-z0-9!@$' | fold -w 16 | head -n 1)
+    RAND=$(< /dev/urandom tr -dc 'A-Za-z0-9' | fold -w 16 | head -n 1)
     sudo sh -c "echo -n $RAND > $(pwd)/Cloudtopolis/.creds"
 fi
 
 echo -e "\e[0m"
-echo -e "\e[32;1m[+] Installing MySQL Database..\e[37;1m"
-sudo docker run --rm --name mysql -v $(pwd)/Cloudtopolis/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="$RAND" -d mysql:5.7 > /dev/null 2>&1
+echo -e "\e[32;1m[+] Installing MariaDB Database..\e[37;1m"
+sudo docker run --rm --name mysql -v $(pwd)/Cloudtopolis/mysql:/var/lib/mysql -e MARIADB_ROOT_PASSWORD="$RAND" -d mariadb:10.11 > /dev/null 2>&1
 echo -e "\e[37;1mDone!"
 
-docker tag  mysql:5.7 cloudtopolis/database > /dev/null 2>&1
-docker rmi  mysql:5.7 > /dev/null 2>&1
-CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/sys"
+docker tag mariadb:10.11 cloudtopolis/database > /dev/null 2>&1
+docker rmi mariadb:10.11 > /dev/null 2>&1
+CloudtopolisDB="$(pwd)/Cloudtopolis/mysql/hashtopolis"
 
 echo -e "\e[0m"
 echo -e "\e[32;1m[+] Installing Hashtopolis..\e[37;1m"
 sudo docker build -t joelgmsec/cloudtopolis . > /dev/null 2>&1
-sudo docker run --rm --name cloudtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS="$RAND" -d -p 8000:80 joelgmsec/cloudtopolis > /dev/null 2>&1
+sudo docker run --rm --name cloudtopolis --link mysql:mysql -v $(pwd)/Cloudtopolis/inc:/var/www/html/inc -v $(pwd)/Cloudtopolis/import:/var/www/html/import -v $(pwd)/Cloudtopolis/files:/var/www/html/files -e H8_USER="admin" -e H8_PASS="$RAND" -e MYSQL_USER="root" -e MYSQL_PASSWORD="$RAND" -d -p 8000:80 joelgmsec/cloudtopolis > /dev/null 2>&1
 echo -e "\e[37;1mDone!"
 
 if [ ! -d $CloudtopolisDB ] ; then
